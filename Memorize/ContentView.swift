@@ -27,6 +27,10 @@ struct ContentView: View {
                 Button("Add Card") {
                     cardCount += 1
                 }
+                Spacer()
+                Button("Remove Card") {
+                    cardCount -= 1
+                }
             }
         }
         .padding(.horizontal)
