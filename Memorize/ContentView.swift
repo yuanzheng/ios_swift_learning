@@ -9,15 +9,24 @@ import SwiftUI
 
 struct ContentView: View {
     let emojis: Array<String> = ["👻", "💩", "🤡", "☠️"]
+    @State var cardCount: Int = 2
     var body: some View {
-        HStack {
-            //CardView(content: "Lucas call first" + emojis[0], isFaceUp: true)
-            //CardView(content: "lucas call second")
-            //用for loop
-            //ForEach(0..<4, id: \.self) {
-            ForEach(emojis.indices, id: \.self) {
-                index in
-                CardView(content: "Lucas call " + emojis[index])
+        VStack {
+            HStack {
+                //CardView(content: "Lucas call first" + emojis[0], isFaceUp: true)
+                //CardView(content: "lucas call second")
+                //用for loop
+                //ForEach(0..<4, id: \.self) {
+                //ForEach(emojis.indices, id: \.self) {
+                ForEach(0..<cardCount, id: \.self) {
+                    index in
+                    CardView(content: "Lucas call " + emojis[index])
+                }
+            }
+            HStack {
+                Button("Add Card") {
+                    cardCount += 1
+                }
             }
         }
         .padding(.horizontal)
