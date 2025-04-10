@@ -42,6 +42,8 @@ struct ContentView: View {
                     Image(systemName: "minus.circle.fill")
                 })
             }
+            .imageScale(.large)
+            .font(.largeTitle)
         }
         .padding(.horizontal)
     }
