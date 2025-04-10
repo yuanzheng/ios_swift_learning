@@ -24,13 +24,23 @@ struct ContentView: View {
                 }
             }
             HStack {
-                Button("Add Card") {
-                    cardCount += 1
-                }
+                Button(action: {
+                    if cardCount < emojis.count {
+                        cardCount += 1
+                    }
+                }, label:{
+                    Image(systemName: "plus.circle.fill")
+                })
+                
                 Spacer()
-                Button("Remove Card") {
-                    cardCount -= 1
-                }
+                
+                Button(action: {
+                    if cardCount > 1 {
+                        cardCount -= 1
+                    }
+                }, label:{
+                    Image(systemName: "minus.circle.fill")
+                })
             }
         }
         .padding(.horizontal)
