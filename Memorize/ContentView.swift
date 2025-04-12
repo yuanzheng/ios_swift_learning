@@ -68,11 +68,10 @@ struct CardView:View {
     var body: some View {
         ZStack {  // 三维空间，z轴
             let shape = RoundedRectangle(cornerRadius: 12)
-            if isFaceUp {
+            Group {
                 //shape.fill().foregroundColor(.white)  // night shift
                 shape.fill(.white) // 都一样
-                shape
-                    .stroke(lineWidth: 2)
+                shape.stroke(lineWidth: 2)
                 VStack {
                     Image(systemName: "globe")
                         .imageScale(.large)
@@ -81,9 +80,9 @@ struct CardView:View {
                         .foregroundColor(Color.purple)
                         .padding()
                 }
-            } else {
-                shape.fill()
             }
+            .opacity(isFaceUp ? 1:0)
+            shape.fill().opacity(isFaceUp ? 0:1)
         }
         .foregroundColor(.orange)
         .onTapGesture {
