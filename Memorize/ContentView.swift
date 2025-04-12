@@ -12,22 +12,24 @@ struct ContentView: View {
     @State var cardCount: Int = 2
     var body: some View {
         VStack {
-            HStack {
-                //CardView(content: "Lucas call first" + emojis[0], isFaceUp: true)
-                //CardView(content: "lucas call second")
-                //用for loop
-                //ForEach(0..<4, id: \.self) {
-                //ForEach(emojis.indices, id: \.self) {
-                ForEach(0..<cardCount, id: \.self) {
-                    index in
-                    CardView(content: "Lucas call " + emojis[index])
-                }
-            }
-            
+            cards
             cardCountAdjusters
-            
         }
         .padding(.horizontal)
+    }
+    
+    var cards: some View {
+        HStack {
+            //CardView(content: "Lucas call first" + emojis[0], isFaceUp: true)
+            //CardView(content: "lucas call second")
+            //用for loop
+            //ForEach(0..<4, id: \.self) {
+            //ForEach(emojis.indices, id: \.self) {
+            ForEach(0..<cardCount, id: \.self) {
+                index in
+                CardView(content: "Lucas call " + emojis[index])
+            }
+        }
     }
     
     var cardCountAdjusters: some View {
