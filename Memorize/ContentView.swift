@@ -23,15 +23,21 @@ struct ContentView: View {
                     CardView(content: "Lucas call " + emojis[index])
                 }
             }
-            HStack {
-                cardAdder
-                Spacer()
-                cardRemover
-            }
-            .imageScale(.large)
-            .font(.largeTitle)
+            
+            cardCountAdjusters
+            
         }
         .padding(.horizontal)
+    }
+    
+    var cardCountAdjusters: some View {
+        HStack {
+            cardAdder
+            Spacer()
+            cardRemover
+        }
+        .imageScale(.large)
+        .font(.largeTitle)
     }
     
     var cardAdder: some View {
