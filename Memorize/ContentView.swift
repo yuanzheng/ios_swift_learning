@@ -13,13 +13,14 @@ struct ContentView: View {
     var body: some View {
         VStack {
             cards
+            Spacer()
             cardCountAdjusters
         }
         .padding(.horizontal)
     }
     
     var cards: some View {
-        HStack {
+        LazyVGrid(columns: [GridItem(), GridItem(), GridItem()]) {
             //CardView(content: "Lucas call first" + emojis[0], isFaceUp: true)
             //CardView(content: "lucas call second")
             //用for loop
