@@ -24,28 +24,34 @@ struct ContentView: View {
                 }
             }
             HStack {
-                Button(action: {
-                    if cardCount < emojis.count {
-                        cardCount += 1
-                    }
-                }, label:{
-                    Image(systemName: "plus.circle.fill")
-                })
-                
+                cardAdder
                 Spacer()
-                
-                Button(action: {
-                    if cardCount > 1 {
-                        cardCount -= 1
-                    }
-                }, label:{
-                    Image(systemName: "minus.circle.fill")
-                })
+                cardRemover
             }
             .imageScale(.large)
             .font(.largeTitle)
         }
         .padding(.horizontal)
+    }
+    
+    var cardAdder: some View {
+        Button(action: {
+            if cardCount < emojis.count {
+                cardCount += 1
+            }
+        }, label:{
+            Image(systemName: "plus.circle.fill")
+        })
+    }
+    
+    var cardRemover: some View {
+        Button(action: {
+            if cardCount > 1 {
+                cardCount -= 1
+            }
+        }, label:{
+            Image(systemName: "minus.circle.fill")
+        })
     }
 }
 
