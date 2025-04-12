@@ -20,7 +20,7 @@ struct ContentView: View {
     }
     
     var cards: some View {
-        LazyVGrid(columns: [GridItem(), GridItem(), GridItem()]) {
+        LazyVGrid(columns: [GridItem(.adaptive(minimum: 120))]) {
             //CardView(content: "Lucas call first" + emojis[0], isFaceUp: true)
             //CardView(content: "lucas call second")
             //用for loop
