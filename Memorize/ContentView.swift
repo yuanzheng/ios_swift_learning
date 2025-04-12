@@ -42,25 +42,23 @@ struct ContentView: View {
         .font(.largeTitle)
     }
     
-    var cardAdder: some View {
+    func cardCountAdjuster(by offset: Int, symbol: String) -> some View {
         Button(action: {
-            if cardCount < emojis.count {
-                cardCount += 1
-            }
+            cardCount += offset
         }, label:{
-            Image(systemName: "plus.circle.fill")
+            Image(systemName: symbol)
         })
+        .disabled(cardCount+offset > emojis.count || cardCount+offset < 1)
+    }
+    
+    var cardAdder: some View {
+        cardCountAdjuster(by: 1, symbol: "plus.circle.fill")
     }
     
     var cardRemover: some View {
-        Button(action: {
-            if cardCount > 1 {
-                cardCount -= 1
-            }
-        }, label:{
-            Image(systemName: "minus.circle.fill")
-        })
+        cardCountAdjuster(by: -1, symbol: "minus.circle.fill")
     }
+    
 }
 
 struct CardView:View {
