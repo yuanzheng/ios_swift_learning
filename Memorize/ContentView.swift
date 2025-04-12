@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
-    let emojis: Array<String> = ["👻", "💩", "🤡", "☠️"]
+    let emojis: Array<String> = ["👻", "💩", "🤡", "☠️", "🎃"]
     @State var cardCount: Int = 2
     var body: some View {
         VStack {
-            cards
+            ScrollView{
+                cards
+            }
             Spacer()
             cardCountAdjusters
         }
