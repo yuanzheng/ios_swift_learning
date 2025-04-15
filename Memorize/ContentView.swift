@@ -8,34 +8,31 @@
 import SwiftUI
 
 struct ContentView: View {
-    let emojis: Array<String> = ["👻", "💩", "🤡", "☠️", "🎃", "🙀", "👿", "👽", "🤑", "👺"]
-    @State var cardCount: Int = 2
+    let emojis: Array<String> = ["👻", "💩", "🤡", "☠️", "🎃", "🙀", "👿", "👽", "🤑", "👺", "🤖", "🐌"]
+    
     var body: some View {
-        VStack {
-            ScrollView{
-                cards
-            }
-            Spacer()
-            cardCountAdjusters
+        
+        ScrollView{
+            cards
         }
         .padding(.horizontal)
     }
     
     var cards: some View {
-        LazyVGrid(columns: [GridItem(.adaptive(minimum: 120))]) {
+        LazyVGrid(columns: [GridItem(.adaptive(minimum: 85))]) {
             //CardView(content: "Lucas call first" + emojis[0], isFaceUp: true)
             //CardView(content: "lucas call second")
             //用for loop
             //ForEach(0..<4, id: \.self) {
             //ForEach(emojis.indices, id: \.self) {
-            ForEach(0..<cardCount, id: \.self) {
+            ForEach(emojis.indices, id: \.self) {
                 index in
                 CardView(content: "Lucas call " + emojis[index])
                     .aspectRatio(2/3, contentMode: .fit)
             }
         }
     }
-    
+    /*
     var cardCountAdjusters: some View {
         HStack {
             cardAdder
@@ -61,6 +58,7 @@ struct ContentView: View {
     var cardRemover: some View {
         cardCountAdjuster(by: -1, symbol: "minus.circle.fill")
     }
+     */
     
 }
 
