@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    let emojis: Array<String> = ["👻", "💩", "🤡", "☠️", "🎃"]
+    let emojis: Array<String> = ["👻", "💩", "🤡", "☠️", "🎃", "🙀", "👿", "👽", "🤑", "👺"]
     @State var cardCount: Int = 2
     var body: some View {
         VStack {
@@ -39,7 +39,6 @@ struct ContentView: View {
     var cardCountAdjusters: some View {
         HStack {
             cardAdder
-            Spacer()
             cardRemover
         }
         .imageScale(.large)
