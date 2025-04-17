@@ -8,9 +8,9 @@
 import Foundation
 
 struct MemoryGame<CardContent> {
-    var cards: Array<Card>
+    private(set) var cards: Array<Card>  // 只有set这个变量是私有的
     
-    func choose(card: Card) {
+    func choose(_ card: Card) {
         
     }
     
