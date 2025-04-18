@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct EmojiMemoryGameView: View {
-    var viewModel: EmojiMemoryGameVM
+    var viewModel: EmojiMemoryGameVM = EmojiMemoryGameVM()
     
     let emojis: Array<String> = ["👻", "💩", "🤡", "☠️", "🎃", "🙀", "👿", "👽", "🤑", "👺", "🤖", "🐌"]
     
