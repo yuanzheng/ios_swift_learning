@@ -11,12 +11,9 @@ class EmojiMemoryGameVM {
     // completely seperated from View
     // init var variable, otherwise, we need to give an initializer
     // cardContentFactory is a closure
-    private var model = MemoryGame(
-        numberOfPairsOfCards: 4,
-        cardContentFactory: { index in
-            return ["👻", "💩", "🤡", "☠️", "🎃", "🙀", "👿", "👽", "🤑", "👺", "🤖", "🐌"][index]
-        }
-    )
+    private var model = MemoryGame(numberOfPairsOfCards: 4) { pairIndex in
+        return ["👻", "💩", "🤡", "☠️", "🎃", "🙀", "👿", "👽", "🤑", "👺", "🤖", "🐌"][pairIndex]
+    }
     
     var cards: Array<MemoryGame<String>.Card> {
         return model.cards
