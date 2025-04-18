@@ -13,7 +13,7 @@ class EmojiMemoryGameVM {
     // cardContentFactory is a closure
     private var model = MemoryGame(
         numberOfPairsOfCards: 4,
-        cardContentFactory: { (index: Int) -> String in
+        cardContentFactory: { index in
             return ["👻", "💩", "🤡", "☠️", "🎃", "🙀", "👿", "👽", "🤑", "👺", "🤖", "🐌"][index]
         }
     )
