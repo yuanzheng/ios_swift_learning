@@ -13,8 +13,9 @@ struct MemoryGame<CardContent> {
     // initializer is required in ViewModel
     init(numberOfPairsOfCards: Int, cardContentFactory: (Int) -> CardContent) {
         self.cards = []
-        for pairIndex in 0..<numberOfPairsOfCards {
+        for pairIndex in 0..<max(2, numberOfPairsOfCards) {
             let content = cardContentFactory(pairIndex)
+            cards.append(Card(content: content))
             cards.append(Card(content: content))
         }
     }
