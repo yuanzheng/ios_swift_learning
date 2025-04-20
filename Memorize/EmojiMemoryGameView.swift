@@ -9,9 +9,7 @@ import SwiftUI
 
 struct EmojiMemoryGameView: View {
     var viewModel: EmojiMemoryGameVM = EmojiMemoryGameVM()
-    
-    let emojis: Array<String> = ["👻", "💩", "🤡", "☠️", "🎃", "🙀", "👿", "👽", "🤑", "👺", "🤖", "🐌"]
-    
+        
     var body: some View {
         
         ScrollView{
@@ -27,12 +25,13 @@ struct EmojiMemoryGameView: View {
             //用for loop
             //ForEach(0..<4, id: \.self) {
             //ForEach(emojis.indices, id: \.self) {
-            ForEach(emojis.indices, id: \.self) {
+            ForEach(viewModel.cards.indices, id: \.self) {
                 index in
-                CardView(content: "Lucas call " + emojis[index])
+                CardView(card: viewModel.cards[index])
                     .aspectRatio(2/3, contentMode: .fit)
             }
         }
+        .foregroundColor(.orange)
     }
     /*
     var cardCountAdjusters: some View {
@@ -65,8 +64,7 @@ struct EmojiMemoryGameView: View {
 }
 
 struct CardView:View {
-    var content: String
-    @State var isFaceUp: Bool = true
+    let card: MemoryGame<String>.Card
     var body: some View {
         ZStack {  // 三维空间，z轴
             let shape = RoundedRectangle(cornerRadius: 12)
@@ -78,19 +76,13 @@ struct CardView:View {
                     Image(systemName: "globe")
                         .imageScale(.large)
                         .foregroundColor(.orange)
-                    Text("Hello, world! -- " + content)
+                    Text("Hello, world! -- " + card.content)
                         .foregroundColor(Color.purple)
                         .padding()
                 }
             }
-            .opacity(isFaceUp ? 1:0)
-            shape.fill().opacity(isFaceUp ? 0:1)
-        }
-        .foregroundColor(.orange)
-        .onTapGesture {
-            print("tapped here")
-            isFaceUp.toggle()
-            // 或 这样写： isFaceUp = !isFaceUp  // self不可变 （self指整个struct）每次点击需要重建整个视图 ，这时需要更改isFaceUp为pointer to memory,也就是说改变内存中的值，isFaceUp不变依旧指向那块内存
+            .opacity(card.isFaceUp ? 1:0)
+            shape.fill().opacity(card.isFaceUp ? 0:1)
         }
     }
 }
