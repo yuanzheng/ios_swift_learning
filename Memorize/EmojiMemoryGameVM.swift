@@ -13,7 +13,7 @@ class EmojiMemoryGameVM {
     // completely seperated from View
     // init var variable, otherwise, we need to give an initializer
     // cardContentFactory is a closure
-    private var model = MemoryGame(numberOfPairsOfCards: 4) { pairIndex in
+    private var model = MemoryGame(numberOfPairsOfCards: 16) { pairIndex in
         if emojis.indices.contains(pairIndex) {
             return emojis[pairIndex]
         } else {

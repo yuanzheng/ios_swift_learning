@@ -19,7 +19,7 @@ struct EmojiMemoryGameView: View {
     }
     
     var cards: some View {
-        LazyVGrid(columns: [GridItem(.adaptive(minimum: 85))]) {
+        LazyVGrid(columns: [GridItem(.adaptive(minimum: 85), spacing: 0)], spacing: 0) {
             //CardView(content: "Lucas call first" + emojis[0], isFaceUp: true)
             //CardView(content: "lucas call second")
             //用for loop
@@ -29,6 +29,7 @@ struct EmojiMemoryGameView: View {
                 index in
                 CardView(card: viewModel.cards[index])
                     .aspectRatio(2/3, contentMode: .fit)
+                    .padding(4)
             }
         }
         .foregroundColor(.orange)
@@ -73,10 +74,11 @@ struct CardView:View {
                 shape.fill(.white) // 都一样
                 shape.stroke(lineWidth: 2)
                 VStack {
-                    Image(systemName: "globe")
-                        .imageScale(.large)
-                        .foregroundColor(.orange)
+                    
                     Text("Hello, world! -- " + card.content)
+                        .font(.system(size:20))
+                        .minimumScaleFactor(0.02)
+                        .aspectRatio(1, contentMode: .fit)
                         .foregroundColor(Color.purple)
                         .padding()
                 }
